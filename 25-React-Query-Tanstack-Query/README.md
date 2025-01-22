@@ -1,4 +1,4 @@
-### Data Fetching with Tanstack Query
+## Data Fetching with Tanstack Query
 Sending HTTP Requests With Ease
 
 #### Introduction
@@ -14,3 +14,16 @@ Resources:
 
 #### What is Tanstack Query?
 A library that helps with sending HTTP requests & keeping your fontend UI in sync.
+
+* TanStack Query Does **Not Send HTTP** Requests. At least **not on its own**
+* You have to write code that sends the actual HTTP request
+* Tanstack Query then manages the **data, errors, caching & much more!**
+
+#### Tanstack Query Caches Query Data
+```
+useQuery({
+    queryKey: ['some-key'],
+    queryFn: fetchData
+});
+```
+* ```fetchData()``` is executed & HTTP request is sent
