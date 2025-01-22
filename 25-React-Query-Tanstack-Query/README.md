@@ -58,3 +58,4 @@ function App() {
 ## Cache & Stale Data
 ```staleTime``` - Time that React send behind the screen requests to get updated data if found data in your cache.
 ```gcTime``` - Garbage Collection Time - Control how long the data and the cache will be kept around / in the cache.
+```isLoading``` will not be true if Query is disabled.
