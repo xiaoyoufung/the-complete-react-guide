@@ -1,3 +1,7 @@
+import { QueryClient } from '@tanstack/react-query';
+
+export const queryClient = new QueryClient();
+
 export async function fetchEvents({ signal, searchTerm }) {
     console.log(searchTerm);
     let url = 'http://localhost:3000/events';
@@ -19,7 +23,6 @@ export async function fetchEvents({ signal, searchTerm }) {
 
     return events;
 }
-
 
 export async function createNewEvent(eventData) {
     const response = await fetch(`http://localhost:3000/events`, {
