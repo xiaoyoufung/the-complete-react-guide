@@ -12,6 +12,8 @@ Resources:
 * [CodeSandbox](https://codesandbox.io/p/devbox/react-query-start-md9z2g?file=%2Fsrc%2Fmain.jsx)
 * [Github](https://github.com/academind/react-complete-guide-course-resources/blob/main/attachments/24%20React%20Query/starting-project.zip)
 
+## Using Tanstack Query
+
 #### What is Tanstack Query?
 A library that helps with sending HTTP requests & keeping your fontend UI in sync.
 
