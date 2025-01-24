@@ -53,3 +53,28 @@ function HomePage() {
 
 export default HomePage;
 ```
+
+## Working with Navigation Links (NavLink)
+- ```<NavLink>```
+- ```className``` props take a function
+- in-line ```style``` also support
+```
+ <nav>
+                <ul className={classes.list}>
+                    <li>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) => (isActive ? classes.active : undefined)}
+                            // style={({ isActive }) => (isActive ? { color: 'red' } : undefined)}
+                            end
+                        >
+                            Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/products"
+                            className={({ isActive }) => (isActive ? classes.active : undefined)}
+                        >Products</NavLink>
+                    </li>
+                </ul>
+            </nav>
+```
