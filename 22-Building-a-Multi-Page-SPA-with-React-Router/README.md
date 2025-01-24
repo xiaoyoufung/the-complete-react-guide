@@ -40,6 +40,7 @@ export default App;
 ```
 
 ## Navigating between Pages with Links
+- Navigate to another page without refreshing page.
 ```
 import { Link } from 'react-router-dom';
 
