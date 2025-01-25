@@ -84,3 +84,4 @@ export default HomePage;
 `loader()`
 - Property that wants a function
 - This function will be execute by React-router when you're about to visit that route.
+- `useLoaderData()` Can only used in a component on the same level or lower level of your fetching data
