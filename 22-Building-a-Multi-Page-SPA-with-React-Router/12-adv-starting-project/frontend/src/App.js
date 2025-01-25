@@ -6,6 +6,7 @@ import NewEventPage from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEvent";
 import RootLayout from "./pages/Root";
 import EventsRootLayout from "./pages/EventsRoot";
+import ErrorPage from "./pages/Error";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./util/http";
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       {
