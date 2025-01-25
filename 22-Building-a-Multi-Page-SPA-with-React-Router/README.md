@@ -58,6 +58,7 @@ export default HomePage;
 - ```<NavLink>```
 - ```className``` props take a function
 - in-line ```style``` also support
+
 ```
  <nav>
                 <ul className={classes.list}>
@@ -78,3 +79,8 @@ export default HomePage;
                 </ul>
             </nav>
 ```
+
+## Data Fetching with a loader()
+`loader()`
+- Property that wants a function
+- This function will be execute by React-router when you're about to visit that route.
