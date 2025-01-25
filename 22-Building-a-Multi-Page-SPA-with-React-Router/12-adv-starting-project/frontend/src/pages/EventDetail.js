@@ -1,29 +1,13 @@
 import EventItem from "../components/EventItem";
-import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { fetchEvent } from "../util/http";
+import { useLoaderData } from "react-router-dom";
 
 function EventDetailPage() {
-    const params = useParams();
-
-    const { data, isPending, isError, error } = useQuery({
-        queryKey: ["events", params.eventId],
-        queryFn: ({ signal }) => fetchEvent({ signal, id: params.eventId }),
-        staleTime: 5000,
-    });
+    const data = useLoaderData();
 
     let content;
 
-    if (isPending) {
-        content = <p>Loading...</p>;
-    }
-
-    if (isError) {
-        content = <p>Error: {error.message}</p>;
-    }
-
     if (data) {
-        content = <EventItem event={data} />;
+        content = <EventItem event={data.event} />;
     }
 
     return <>
@@ -33,3 +17,16 @@ function EventDetailPage() {
 }
 
 export default EventDetailPage;
+
+export async function loader({ request, params }) {
+    const id = params.eventId;
+
+    const response = await fetch(`http://localhost:8080/events/${id}`);
+
+    if (!response.ok) {
+        throw new Response(JSON.stringify({ message: 'Could not fetch details for selected event.' }),
+            { status: 500 });
+    } else {
+        return response;
+    }
+}
