@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 function EventsPage() {
     const { data, isPending, isError, error } = useQuery({
-        queryKey: "events",
+        queryKey: ["events"],
         queryFn: fetchEvents,
     });
 
