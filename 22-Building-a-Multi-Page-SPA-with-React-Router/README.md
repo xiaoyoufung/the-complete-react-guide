@@ -146,3 +146,6 @@ const navigation = useNavigation();
 - For ex: Any browser Api, localstorage, cookies
 - Can't use **React Hook**
 - loader function is not a React component
+
+#### Working with action() Functions
+- similar to loader()
