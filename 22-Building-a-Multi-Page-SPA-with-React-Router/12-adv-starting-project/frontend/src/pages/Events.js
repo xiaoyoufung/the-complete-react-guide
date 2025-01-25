@@ -1,31 +1,37 @@
-import EventsList from "../components/EventsList";
-import { fetchEvents } from "../util/http";
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from 'react';
+
+import EventsList from '../components/EventsList';
 
 function EventsPage() {
-    const { data, isPending, isError, error } = useQuery({
-        queryKey: ["events"],
-        queryFn: fetchEvents,
-    });
+  const [isLoading, setIsLoading] = useState(false);
+  const [fetchedEvents, setFetchedEvents] = useState();
+  const [error, setError] = useState();
 
-    let content;
+  useEffect(() => {
+    async function fetchEvents() {
+      setIsLoading(true);
+      const response = await fetch('http://localhost:8080/events');
 
-    if (isPending) {
-        content = <p>Loading...</p>;
+      if (!response.ok) {
+        setError('Fetching events failed.');
+      } else {
+        const resData = await response.json();
+        setFetchedEvents(resData.events);
+      }
+      setIsLoading(false);
     }
 
-    if (isError) {
-        content = <p>Error: {error.message}</p>;
-    }
-
-    if (data) {
-        content = <EventsList events={data} />;
-    }
-
-    return <>
-        <h1>Events Page</h1>
-       {content}
-    </>;
+    fetchEvents();
+  }, []);
+  return (
+    <>
+      <div style={{ textAlign: 'center' }}>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+      </div>
+      {!isLoading && fetchedEvents && <EventsList events={fetchedEvents} />}
+    </>
+  );
 }
 
 export default EventsPage;
