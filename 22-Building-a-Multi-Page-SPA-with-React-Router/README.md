@@ -103,7 +103,7 @@ export default HomePage;
 - This function will be execute by React-router when you're about to visit that route.
 - `useLoaderData()` Can only used in a component on the same level or lower level of your fetching data
 
-#### Where Should loader() Code Be Stored?
+## Where Should loader() Code Be Stored?
 
 - Stored in the component page
 
@@ -120,13 +120,13 @@ export async function loader(){
 }
 ```
 
-#### When Are `loader()` Functions Executed?
+## When Are `loader()` Functions Executed?
 
 - The loader will be called right when we start navigating to that page.
 - Before we actually go there.
 - React router will wait untill the `loader` finish, before render the page with the fetched data.
 
-#### Reflecting The Current Navigation State in the UI
+## Reflecting The Current Navigation State in the UI
 
 `useNavigation` - hook
 
@@ -141,17 +141,17 @@ const navigation = useNavigation();
     <Outlet />
 </main>
 ```
-#### Which Kind Of Code Goes Into loaders()?
+## Which Kind Of Code Goes Into loaders()?
 - loader execute in the browser, not on server.
 - For ex: Any browser Api, localstorage, cookies
 - Can't use **React Hook**
 - loader function is not a React component
 
-#### Working with action() Functions
+## Working with action() Functions
 - similar to loader()
 
-#### Work with `useFetcher()`
+## Work with `useFetcher()`
 - whenever you want to trigger an action, loader without navigating to a page that loader bolongs / to the page action belongs.
 
-#### Deferring Data Fetching with `defer()`
+## Deferring Data Fetching with `defer()`
 - defer loading and tell React router that we want to render a component already, eventhough the data is not fully there yet...
