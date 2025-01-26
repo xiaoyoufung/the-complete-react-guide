@@ -32,10 +32,10 @@ User Signup & Login
 - Server can then verify attached token.
 
 ## Query Parameters
-`localhost:3000/auth?mode=signup` // mode=signup
+##### `localhost:3000/auth?mode=signup` => ?mode=signup
 - We can directly link to a page, just with the different UI.
 
-`useSearchParams` 
+##### `useSearchParams` 
 - Hook that get currently set query params
 - `const [searchParams, setSearchParams] = useSearchParams()`
 - first element => object give access to current set query params.
