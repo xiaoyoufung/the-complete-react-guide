@@ -149,3 +149,9 @@ const navigation = useNavigation();
 
 #### Working with action() Functions
 - similar to loader()
+
+#### Work with `useFetcher()`
+- whenever you want to trigger an action, loader without navigating to a page that loader bolongs / to the page action belongs.
+
+#### Deferring Data Fetching with `defer()`
+- defer loading and tell React router that we want to render a component already, eventhough the data is not fully there yet...
