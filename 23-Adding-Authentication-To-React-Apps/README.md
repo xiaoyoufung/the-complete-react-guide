@@ -47,3 +47,37 @@ User Signup & Login
 ```
 
 - `.get` method for retrieve the value for specific query params
+
+## Adding User Login
+- get auth token from the response
+- then store auth token in the `localStorage`
+```
+  const resData = await response.json();
+  const token = resData.token;
+
+  localStorage.setItem('token', token);
+```
+
+## Attaching Auth Tokens to Outgoing Requests
+- get token from `getAuthTokens()` function.
+- then send the token with the request to the server.
+```
+  const token = getAuthTokens();
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    },
+    body: JSON.stringify(eventData),
+  });
+```
+
+## Adding User Logout
+- remove auth token from the `localStorage`
+```
+export function action(){
+    localStorage.removeItem('token');
+    return redirect('/');
+}
+```
