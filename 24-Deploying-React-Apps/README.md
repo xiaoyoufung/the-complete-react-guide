@@ -16,3 +16,10 @@ From Development To Production
 ## Lazy Loading
 - Load code only when it's needed
 - Load certain pieces of code when it's needed
+
+## Building the Code For Production
+`npm run build`
+
+## Deployment Example
+- A React SPA is a "Static Website" only HTML, CSS & JS
+- A static site host is needed
